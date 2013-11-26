@@ -1,0 +1,39 @@
+\ProvidesFile{sample.lco}[2013/05/06 sample personal lco file]
+%%% disable fold marks
+% \KOMAoptions{foldmarks=blmtp}
+%%% squeeze more onto first page
+% \KOMAoptions{enlargefirstpage=true}
+
+
+%%% Signature information
+\setkomavar{fromname}{The Sender}
+%%% For a multi-line signature
+\setkomavar{signature}{%
+  %\includegraphics{sigimage}\\
+  The Sender\\
+  Position}
+
+
+%%% Header information (should be capitalised)
+\setkomavar{headtitle}{UCL DEPARTMENT OF XXX}
+% \setkomavar{headsubtitle}{OPTIONAL LINE 1\\ OPTIONAL LINE 2}
+
+%%% Footer information (use as required)
+\setkomavar{fromaddress}{%
+  UCL Department of XX\\
+  University College London, Gower Street, London WC1E 6BT
+} 
+\setkomavar{fromphone}{+44~(0)20~7XXX~XXXX}
+\setkomavar{fromfax}{+44~(0)20~7XXX~XXXX}
+\setkomavar{fromemail}{sender@ucl.ac.uk}
+\setkomavar{fromurl}{http://www.ucl.ac.uk/XXX}
+%%% possible partner logo
+% \setkomavar{fromlogo}{\includegraphics[height=2cm]{imagename}}
+%%% set colour of footer text
+% \usepackage{xcolor}
+% \setkomafont{fromaddress}{\color{black!60}}
+
+%%% Content options
+
+%%% box to right of recipient address
+% \setkomavar{location}{}

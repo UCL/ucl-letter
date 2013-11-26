@@ -1,0 +1,72 @@
+\ProvidesFile{ucl.lco}[2013/05/06 UCL letter template (Simon Byrne)]
+\RequirePackage{graphicx}
+\RequirePackage{helvet}
+\RequirePackage[UKenglish]{babel}
+
+\renewcommand{\familydefault}{\sfdefault}
+\KOMAoptions{fontsize=10pt}
+
+% this needs to be set to a value < \paperwidth to avoid centering
+\@setplength{firstheadvpos}{1cm}
+\@setplength{firstheadhpos}{1cm}
+\@setplength{firstheadwidth}{\paperwidth}
+\@addtoplength{firstheadwidth}{-2cm}
+
+\@setplength{firstfootvpos}{\paperheight}
+\@addtoplength{firstfootvpos}{-1cm}
+\@setplength{firstfoothpos}{1cm}
+\@setplength{firstfootwidth}{\paperwidth}
+\@addtoplength{firstfootwidth}{-2cm}
+
+\AtBeginLetter{%
+  \settoheight{\@tempdima}{\usekomavar{firstfoot}}%
+  \@addtoplength[-]{firstfootvpos}{\@tempdima}}
+
+
+% \fontsize{10pt}{10pt}
+\newkomafont{headtitle}{\sffamily\bfseries}
+\newkomafont{headsubtitle}{\sffamily}
+\newkomavar{headtitle}
+\newkomavar{headsubtitle}
+
+\setkomavar{firsthead}{%
+  {\usekomafont{headtitle}\usekomavar{headtitle}\\}
+  {\usekomafont{headsubtitle}\usekomavar{headsubtitle}\\}
+  \noindent\hspace*{-\useplength{firstheadhpos}}%
+  \includegraphics[width=\paperwidth]{uclbanner-outline}%
+}
+
+\setkomavar{firstfoot}{%
+  \parbox[b]{\useplength{firstfootwidth}}{\raggedright
+  {\usekomafont{fromaddress}\usekomavar{fromaddress}
+  \ifkomavarempty{fromphone}{%
+    \ifkomavarempty{fromfax}{}{%
+      \\\usekomavar*{fromfax}\usekomavar{fromfax}%
+    }
+  }{%
+    \\\usekomavar*{fromphone}\usekomavar{fromphone}%
+    \ifkomavarempty{fromfax}{}{%
+      \quad\usekomavar*{fromfax}\usekomavar{fromfax}%
+    }
+  }
+  \ifkomavarempty{fromemail}{}{%
+    \\\usekomavar{fromemail}%
+  }
+  \ifkomavarempty{fromurl}{}{%
+    \\\usekomavar{fromurl}%
+  }}}%
+  \ifkomavarempty{fromlogo}{}{\llap{\usekomavar{fromlogo}}}
+}
+
+%%% Change "Phone: " to "Tel: "
+\providecaptionname{english}\phonename{Tel}%
+\providecaptionname{british}\phonename{Tel}%
+\providecaptionname{UKenglish}\phonename{Tel}%
+
+%%% disable return address above recipient address
+\KOMAoptions{backaddress=false}
+
+%%% left-align signature
+\renewcommand*{\raggedsignature}{\raggedright}
+
+

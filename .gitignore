@@ -1,0 +1,9 @@
+*.aux
+*.log
+*.nav
+*.out
+*.pdf
+*.dvi
+*.snm
+*.toc
+uclbanner-outline.pdf
